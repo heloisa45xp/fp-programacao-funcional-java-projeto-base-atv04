@@ -48,29 +48,43 @@ public class Aula04 extends Aula {
     }
 
     protected double maiorNotaCursoAndSexo(@NonNull final Stream<Estudante> stream, @NonNull final Curso curso, final char sexo) {
-        // TODO: Você precisa implementar este método. Apague estas linhas e escreva o código correto.
-        return -1;
+        return stream
+                .filter(e -> e.getCurso() != null && e.getCurso() == curso)
+                .filter(e -> e.getSexo() == sexo)
+                .mapToDouble(Estudante::getNota)
+                .max()
+                .orElse(0);
     }
 
     protected long totalEstudantesCursoAndSexo(@NonNull final Stream<Estudante> stream, @NonNull final Curso curso, final char sexo) {
-        // TODO: Você precisa implementar este método. Apague estas linhas e escreva o código correto.
-        return -1;
+        return stream
+                .filter(e -> e.getCurso() != null && e.getCurso() == curso)
+                .filter(e -> e.getSexo() == sexo)
+                .count();
     }
 
     protected double mediaNotaTodosEstudantesCurso(@NonNull final Stream<Estudante> stream, @NonNull final Curso curso){
-        // TODO: Você precisa implementar este método. Apague estas linhas e escreva o código correto.
-        return -1;
+        return stream
+                .filter(e -> e.getCurso() != null && e.getCurso() == curso)
+                .mapToDouble(Estudante::getNota)
+                .average()
+                .orElse(0);
     }
 
     protected double maiorNotaTodosEstudantes(@NonNull final Stream<Estudante> stream){
-        // TODO: Você precisa implementar este método. Apague estas linhas e escreva o código correto.
-        return -1;
+        return stream
+                .mapToDouble(Estudante::getNota)
+                .max()
+                .orElse(0);
     }
 
 
     protected double maiorNotaHomens(@NonNull final Stream<Estudante> stream){
-        // TODO: Você precisa implementar este método. Apague estas linhas e escreva o código correto.
-        return -1;
+        return stream
+                .filter(Estudante::isHomem)
+                .mapToDouble(Estudante::getNota)
+                .max()
+                .orElse(0);
     }
 }
 
