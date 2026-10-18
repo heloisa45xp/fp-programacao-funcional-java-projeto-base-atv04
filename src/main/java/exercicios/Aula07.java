@@ -82,7 +82,23 @@ public class Aula07 extends Aula {
      * do IntelliJ e selecione a opção "Run All Tests".
      */
     public Aula07() {
-        //TODO: Insira chamdas das funções existentes aqui, para você conferir como estão funcionando
+        System.out.println("\n=== Mulheres aprovadas (ordem original) ===");
+        getEstudantesMulheresAprovadasNaoOrdenadasModificavel().forEach(System.out::println);
+
+        System.out.println("\n=== Mulheres aprovadas (lista não-modificável) ===");
+        getEstudantesMulheresAprovadas().forEach(System.out::println);
+
+        System.out.println("\n=== Mulheres aprovadas: curso crescente e nota crescente ===");
+        getEstudantesMulheresAprovadasOrdenadasPorCursoAndNota().forEach(System.out::println);
+
+        System.out.println("\n=== Mulheres aprovadas: curso decrescente e nota crescente ===");
+        getEstudantesMulheresAprovadasOrdenadasPorCursoDecrescenteAndNotaCrescente().forEach(System.out::println);
+
+        System.out.println("\n=== Mulheres aprovadas: curso decrescente e nota decrescente ===");
+        getEstudantesMulheresAprovadasOrdenadasTotalmenteDecrescente().forEach(System.out::println);
+
+        System.out.println("\n=== Mulheres aprovadas: curso crescente e nota decrescente ===");
+        getEstudantesMulheresAprovadasOrdenadasPorCursoCrescenteAndNotaDecrescente().forEach(System.out::println);
     }
 
     /**
