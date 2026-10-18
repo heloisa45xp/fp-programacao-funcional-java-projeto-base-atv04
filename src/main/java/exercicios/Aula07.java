@@ -2,6 +2,7 @@ package exercicios;
 
 import exercicios.base.Aula;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -29,9 +30,47 @@ public class Aula07 extends Aula {
      * Você deve trocar o valor armazenado ao atributo para ele seguir a regra definida acima.
      */
     private final Predicate<Estudante> mulheresAprovadas =
-            Predicate.<Estudante>of(Estudante::isMulher)
+            ((Predicate<Estudante>) Estudante::isMulher)
                     .and(Estudante::hasCurso)
                     .and(Estudante::isAprovado);
+
+    /**
+     * Comparador base que ordena os estudantes pelo nome do curso de forma crescente.
+     * É reutilizado para compor os demais {@link Comparator} compostos da classe.
+     */
+    private final Comparator<Estudante> comparadorPorCurso =
+            Comparator.comparing(e -> e.getCurso().getNome());
+
+    /**
+     * Comparador base que ordena os estudantes pela nota de forma crescente.
+     * É reutilizado para compor os demais {@link Comparator} compostos da classe.
+     */
+    private final Comparator<Estudante> comparadorPorNota =
+            Comparator.comparingDouble(Estudante::getNota);
+
+    /**
+     * Comparador composto: nome do curso crescente e nota crescente.
+     */
+    private final Comparator<Estudante> porCursoCrescenteAndNotaCrescente =
+            comparadorPorCurso.thenComparing(comparadorPorNota);
+
+    /**
+     * Comparador composto: nome do curso decrescente e nota crescente.
+     */
+    private final Comparator<Estudante> porCursoDecrescenteAndNotaCrescente =
+            comparadorPorCurso.reversed().thenComparing(comparadorPorNota);
+
+    /**
+     * Comparador composto: nome do curso crescente e nota decrescente.
+     */
+    private final Comparator<Estudante> porCursoCrescenteAndNotaDecrescente =
+            comparadorPorCurso.thenComparing(comparadorPorNota.reversed());
+
+    /**
+     * Comparador composto: nome do curso decrescente e nota decrescente.
+     */
+    private final Comparator<Estudante> totalmenteDecrescente =
+            comparadorPorCurso.reversed().thenComparing(comparadorPorNota.reversed());
 
     /**
      * Você pode chamar os métodos existentes e outros que você criar aqui,
