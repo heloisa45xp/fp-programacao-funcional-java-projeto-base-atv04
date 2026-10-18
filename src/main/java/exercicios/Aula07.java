@@ -5,6 +5,7 @@ import exercicios.base.Aula;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 /**
  * Esta é uma classe para você poder implementar as atividades propostas no README.
@@ -90,6 +91,16 @@ public class Aula07 extends Aula {
     }
 
     /**
+     * Obtém uma {@link Stream} dos estudantes que satisfazem o predicado composto
+     * {@link #mulheresAprovadas}. Método auxiliar reutilizado pelos demais métodos da classe.
+     *
+     * @return uma {@link Stream} com as mulheres matriculadas em algum curso e aprovadas
+     */
+    protected Stream<Estudante> streamMulheresAprovadas() {
+        return estudantes.stream().filter(mulheresAprovadas);
+    }
+
+    /**
      * Obtém uma Lista <b>NÃO-MODIFICÁVEL</b> de mulheres matriculadas e aprovadas em algum curso
      * O método usa o predicado {@link #mulheresAprovadas} para filtrar a lista de estudantes.
      * Desta forma, você precisa definir um predicado composto com {@link Predicate#and(Predicate)}
@@ -98,8 +109,7 @@ public class Aula07 extends Aula {
      * @return uma Lista <b>NÃO-MODIFICÁVEL</b> de estudantes selecionados pelo predicado {@link #mulheresAprovadas}
      */
     public List<Estudante> getEstudantesMulheresAprovadas() {
-        // TODO: Você precisa implementar este método. Apague estas linhas e escreva o código correto.
-        return null;
+        return streamMulheresAprovadas().toList();
     }
 
     /**
