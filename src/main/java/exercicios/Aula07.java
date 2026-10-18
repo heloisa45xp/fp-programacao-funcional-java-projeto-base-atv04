@@ -121,8 +121,7 @@ public class Aula07 extends Aula {
      * @return uma Lista <b>NÃO-MODIFICÁVEL</b> de estudantes selecionados pelo predicado {@link #mulheresAprovadas}
      */
     public List<Estudante> getEstudantesMulheresAprovadasOrdenadasPorCursoAndNota() {
-        // TODO: Você precisa implementar este método. Apague estas linhas e escreva o código correto.
-        return null;
+        return streamMulheresAprovadas().sorted(porCursoCrescenteAndNotaCrescente).toList();
     }
 
     /**
@@ -154,8 +153,7 @@ public class Aula07 extends Aula {
      * @return uma Lista <b>NÃO-MODIFICÁVEL</b> de estudantes selecionados pelo predicado {@link #mulheresAprovadas}
      */
     public List<Estudante> getEstudantesMulheresAprovadasOrdenadasTotalmenteDecrescente() {
-        // TODO: Você precisa implementar este método. Apague estas linhas e escreva o código correto.
-        return null;
+        return streamMulheresAprovadas().sorted(totalmenteDecrescente).toList();
     }
 
     /**
