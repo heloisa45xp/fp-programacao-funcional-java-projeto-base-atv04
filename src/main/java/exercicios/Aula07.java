@@ -28,7 +28,10 @@ public class Aula07 extends Aula {
      * Este deve ser um predicado composto usando {@link Predicate#and(Predicate)}.
      * Você deve trocar o valor armazenado ao atributo para ele seguir a regra definida acima.
      */
-    private final Predicate<Estudante> mulheresAprovadas = null; //TODO: Atribua aqui o predicado composto com o filtro indicado acima
+    private final Predicate<Estudante> mulheresAprovadas =
+            Predicate.<Estudante>of(Estudante::isMulher)
+                    .and(Estudante::hasCurso)
+                    .and(Estudante::isAprovado);
 
     /**
      * Você pode chamar os métodos existentes e outros que você criar aqui,
