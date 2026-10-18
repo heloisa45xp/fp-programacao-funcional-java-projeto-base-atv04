@@ -1,4 +1,4 @@
-**Atividade 04 realizada**
+**Atividade 04 e 07 realizada**
 
 = Programação Funcional, Expressões Lambda e Streams no Java 25
 
