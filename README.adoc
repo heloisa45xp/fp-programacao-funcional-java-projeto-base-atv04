@@ -1,3 +1,5 @@
+**Atividade 04 realizada**
+
 = Programação Funcional, Expressões Lambda e Streams no Java 25
 
 Este é projeto que deve servir de base para você praticar programação funcional em Java com Streams e Lambdas.
